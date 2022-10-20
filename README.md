@@ -32,6 +32,10 @@ This application was built using node express and sequilize. The application all
 ## Video ##
 
 
+https://user-images.githubusercontent.com/66175531/197012586-7047046e-67a4-4981-80bd-432456cdbbb8.mp4
+
+
+
 
 
 
