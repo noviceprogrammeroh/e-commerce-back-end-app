@@ -36,18 +36,29 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-//compare
-// create a new tag
-router.post('/', (req, res) => {
-  Tag.create({
-    tag_name: req.body.tag_name,
-  })
-    .then((tagData) => res.json(tagData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
+// CREATE a new Tag
+router.post('/', async (req, res) => {
+  try {
+    const categoryData = await Category.create({
+      tag_name: req.body.tag_name,
     });
+    res.status(200).json(categoryData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
+
+// create a new tag
+// router.post('/', (req, res) => {
+//   Tag.create({
+//     tag_name: req.body.tag_name,
+//   })
+//     .then((tagData) => res.json(tagData))
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 // update a tag's name by its `id` value
 router.put('/:id', (req, res) => {
